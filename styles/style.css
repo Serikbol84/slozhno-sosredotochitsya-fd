@@ -1,5 +1,95 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+
+
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  font-family: var(--font);
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  padding: 10px;
+  block-size: 100vh;
+  position: relative;
+}
+
+.header__theme-menu {
+  justify-self: flex-end;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.125em;
+  line-height: 1;
+  color: var(--accent-color);
+  text-transform: lowercase;
+  padding: 2px 13px 4px;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header-rec {
+  position: absolute;
+  top: 10px;
+  right: 38px;
+  font-size: 1.125em;
+  line-height: 1.39em;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.header-rec::after {
+  position: absolute;
+  content: '';
+  display: block;
+  inline-size: 0.56rem;
+  block-size: 0.56rem;
+  border-radius: 50%;
+  background: var(--accent-color);
+  right: -19px;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  position: absolute;
+  content: '';
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.decorated-zone::before {
+  top: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+.decorated-zone::after {
+  bottom: 10px;
+  left: 10px;
+  transform: rotate(360deg);
 }
