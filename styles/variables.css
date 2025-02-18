@@ -4,6 +4,7 @@
 */
 :root {
   --main-font: 'IBM Plex Mono', sans-serif;
+  --mobile-title-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   --text-font-size: 1.125em;
   --normal-font-weight: 400;
   --bold-font-weight: 700;
@@ -12,7 +13,8 @@
   --title-decor-bg-color: #FF0070;
   --paragraph-color: #F1B2CE;
   --mobile-padding: 10px;
-  --mobile-main-section-padding: 40px 10px 50px;
+  --mobile-main-section-padding: 40px 10px;
+  --mobile-gallery-section-padding: 10px 10px 40px;
   --bg-color: #000028;
   --bg-image: url(../images/cover-image-dark.png);
 
