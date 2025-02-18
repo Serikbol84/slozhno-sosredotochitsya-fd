@@ -4,15 +4,21 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-  font-family: var(--font);
+  font-family: var(--main-font, 'IBM Plex Mono', sans-serif);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .header {
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   align-items: center;
-  padding: 10px;
-  block-size: 100vh;
+  padding: var(--mobile-padding, 10px);
+  block-size: max(668px, 100vh);
   position: relative;
 }
 
@@ -28,33 +34,35 @@
 .header__theme-menu-button {
   border: none;
   background-color: transparent;
-  font-size: 1.125em;
+  font-size: var(--text-font-size, 1.125em);
   line-height: 1;
-  color: var(--accent-color);
+  font-weight: var(--normal-font-weight);
+  color: var(--accent-color, #FF0070);
   text-transform: lowercase;
   padding: 2px 13px 4px;
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color, #FF0070);
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color, #FF0070);
 }
 
 .header__theme-menu-button:focus {
   outline: none;
-  border-bottom: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color, #FF0070);
 }
 
 .header-rec {
   position: absolute;
   top: 10px;
   right: 38px;
-  font-size: 1.125em;
+  font-size: var(--text-font-size, 1.125em);
   line-height: 1.39em;
-  color: var(--accent-color);
+  font-weight: var(--normal-font-weight, 400);
+  color: var(--accent-color, #FF0070);
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -67,9 +75,9 @@
   inline-size: 0.56rem;
   block-size: 0.56rem;
   border-radius: 50%;
-  background: var(--accent-color);
+  background: var(--accent-color, #FF0070);
   right: -19px;
-  box-shadow: 0 0 4px 2px var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
 }
 
 .decorated-zone::before,
@@ -78,8 +86,8 @@
   content: '';
   width: 25px;
   height: 25px;
-  border-left: 1px solid var(--accent-color);
-  border-bottom: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color, #FF0070);
+  border-bottom: 1px solid var(--accent-color, #FF0070);
 }
 
 .decorated-zone::before {
@@ -92,4 +100,63 @@
   bottom: 10px;
   left: 10px;
   transform: rotate(360deg);
+}
+
+.header-title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: var(--bold-font-weight, 700);
+  color: var(--title-color, #DB00FF);
+  text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
+  line-height: 0.825em;
+}
+
+.title-decor {
+  background: var(--title-decor-bg-color);
+}
+
+.sub-title {
+  font-size: var(--text-font-size, 1.125em);
+  line-height: 1.3em;
+  font-weight: var(--bold-font-weight, 700);
+}
+
+/*=================================================== main section ===========================================================*/
+.main {
+  padding: var(--mobile-main-section-padding);
+  display: grid;
+  gap: 50px;
+}
+
+.main__card-list {
+  display: grid;
+  gap: 20px;
+}
+
+.main__card-content-item {
+  display: grid;
+  gap: 10px;
+}
+
+.main__card-list-title {
+  font-size: var(--text-font-size);
+  line-height: 1.3em;
+  font-weight: var(--bold-font-weight, 700);
+  color: var(--accent-color);
+}
+
+.sub-title-1 {
+  font-size: var(--text-font-size);
+  line-height: 1.3em;
+  font-weight: var(--normal-font-weight, 400);
+}
+
+.main__card-list-text {
+  font-size: var(--text-font-size);
+  line-height: 1.3em;
+  font-weight: var(--normal-font-weight, 400);
+  color: var(--paragraph-color);
+}
+
+.main__card-list:nth-of-type(3) .main__card-content-item:first-of-type > .sub-title-1 {
+  margin-block-start: 10px;
 }

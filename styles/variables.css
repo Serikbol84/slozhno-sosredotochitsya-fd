@@ -3,7 +3,17 @@
   и их переопределение под различные устройства
 */
 :root {
-  --font: 'IBM Plex Mono', sans-serif;
+  --main-font: 'IBM Plex Mono', sans-serif;
+  --text-font-size: 1.125em;
+  --normal-font-weight: 400;
+  --bold-font-weight: 700;
   --accent-color: #FF0070;
+  --title-color: #DB00FF;
+  --title-decor-bg-color: #FF0070;
+  --paragraph-color: #F1B2CE;
+  --mobile-padding: 10px;
+  --mobile-main-section-padding: 40px 10px 50px;
+  --bg-color: #000028;
+  --bg-image: url(../images/cover-image-dark.png);
 
 }
