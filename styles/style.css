@@ -201,7 +201,7 @@
 .footer {
   display: grid;
   padding: var(--mobile-padding);
-  block-size: 100vh;
+  block-size: max(668px, 100vh);
   justify-content: center;
   align-items: center;
   position: relative;
