@@ -20,5 +20,6 @@
 
   --desktop-padding: 20px;
   --desktop-main-section-padding: 60px 20px;
+  --desktop-gallery-section-padding: 20px 20px 60px;
   --desktop-title-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
 }
