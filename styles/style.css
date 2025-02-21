@@ -183,7 +183,7 @@
   outline: 1px solid var(--paragraph-text-color);
 }
 
-.main__card-content-subtitle--first {
+.main__card-content-subtitle--top-spaced {
   margin-block-start: 10px;
 }
 
