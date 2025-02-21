@@ -36,18 +36,23 @@
   color: var(--reserv-accent-color, #FF0070);
   text-transform: lowercase;
   padding: 2px 13px 4px;
+  cursor: pointer;
 }
 
 .header__theme-menu-button_active {
   outline: 1px solid var(--reserv-accent-color, #FF0070);
+  pointer-events: none;
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--reserv-accent-color, #FF0070);
+  outline: 1px solid var(--button-hover-color);
 }
 
 .header__theme-menu-button:focus {
   outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
   border-bottom: 1px solid var(--reserv-accent-color, #FF0070);
 }
 
@@ -68,8 +73,8 @@
   position: absolute;
   content: '';
   display: block;
-  inline-size: 0.56rem;
-  block-size: 0.56rem;
+  inline-size: 9px; /*сделал как в макете 9х9 px, но разницы не увидел*/
+  block-size: 9px;
   border-radius: 50%;
   background: var(--accent-color, #FF0070);
   right: -19px;
@@ -98,7 +103,7 @@
   transform: rotate(360deg);
 }
 
-.header-title {
+.title-style {
   font-size: var(--mobile-title-font-size);
   font-weight: var(--bold-font-weight, 700);
   color: var(--title-color, #DB00FF);
@@ -108,9 +113,6 @@
 
 .title-decor {
   background: var(--accent-color, #FF0070);
-}
-
-.sub-title {
   font-size: var(--text-font-size, 1.125em);
   line-height: 1.3em;
   font-weight: var(--bold-font-weight, 700);
@@ -124,38 +126,28 @@
   gap: 50px;
 }
 
-.main__card-list {
+.main__card-block {
   display: grid;
   gap: 20px;
 }
 
-.main__card-content-item {
+.main__card-block-content {
   display: grid;
   gap: 10px;
 }
 
-.main__card-list-title {
+.main__card-block-title {
   font-size: var(--text-font-size);
   line-height: 1.3em;
   font-weight: var(--bold-font-weight, 700);
   color: var(--reserv-accent-color, #FF0070);
 }
 
-.main__card-content-title {
-  font-size: var(--text-font-size, 1.125em);
-  line-height: 1.3em;
-  font-weight: var(--bold-font-weight, 700);
-  color: var(--text-color, #000028);
-}
-
-.main__card-content-title-1 {
-  font-size: var(--text-font-size, 1.125em);
-  line-height: 1.3em;
+.main__card-content-subtitle {
   font-weight: var(--normal-font-weight, 400);
-  color: var(--text-color, #000028);
 }
 
-.main__card-list-text {
+.main__card-content-text {
   font-size: var(--text-font-size, 1.125em);
   line-height: 1.3em;
   font-weight: var(--normal-font-weight, 400);
@@ -184,10 +176,14 @@
 }
 
 .link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
   outline: 1px solid var(--paragraph-text-color);
 }
 
-.main__card-list:nth-of-type(3) .main__card-content-item:first-of-type > .main__card-content-title-1 {
+.main__card-content-subtitle--first {
   margin-block-start: 10px;
 }
 
@@ -201,13 +197,6 @@
 .gallery-wrap {
   display: grid;
   gap: 10px;
-}
-
-.gallery-title {
-  font-size: var(--text-font-size, 1.125em);
-  line-height: 1.3em;
-  font-weight: var(--bold-font-weight, 700);
-  color: var(--text-color, #000028);
 }
 
 .gallery-image {
@@ -225,14 +214,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-.footer-title {
-  font-size: var(--mobile-title-font-size);
-  font-weight: var(--bold-font-weight, 700);
-  color: var(--title-color, #DB00FF);
-  text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
-  line-height: 0.825em;
 }
 
 /*================================================= Width 768px x 1024px =====================================================*/
@@ -272,20 +253,16 @@
     gap: 80px;
   }
 
-  .first-section, .third-section {
+  .main__card-block {
     grid-template-columns: 1fr 2fr;
   }
 
-  .first-section .main__card-content-item,
-  .third-section .main__card-content-item {
+  .section-focus-barriers .main__card-block-content,
+  .section-focus-advice .main__card-block-content {
     grid-column: 2 / 3;
   }
 
-  .second-section {
-    grid-template-columns: 1fr 2fr;
-  }
-  
-  .second-section .main__card-content-item {
+  .section-focus-distractions .main__card-block-content {
     grid-column: 1 / -1;
   }
 
@@ -347,40 +324,35 @@
     grid-auto-flow: column;
   }
 
-  .first-section, .third-section {
+  .main__card-block {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .first-section .main__card-list-title,
-  .third-section .main__card-list-title {
+  .section-focus-barriers .main__card-block-title,
+  .section-focus-advice .main__card-block-title {
     grid-column: 1 / 2;
   }
 
-  .first-section .main__card-content-item,
-  .third-section .main__card-content-item {
+  .section-focus-barriers .main__card-block-content,
+  .section-focus-advice .main__card-block-content {
     grid-column:  2 / span 2;
   }
 
-  .second-section {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-  }
-
-  .second-section .main__card-content-item {
+  .section-focus-distractions .main__card-block-content {
     align-self: start;
   }
   
-  .second-section .main__card-content-item:nth-child(2) {
+  .section-focus-distractions .content-multitask {
     grid-column: 1;
     grid-row: 2;
   }
   
-  .second-section .main__card-content-item:nth-child(3) {
+  .section-focus-distractions .content-food {
     grid-column: 2;
     grid-row: 2;
   }
   
-  .second-section .main__card-content-item:nth-child(4) {
+  .section-focus-distractions .content-gadgets {
     grid-column: 3;
     grid-row: 2;
   }
